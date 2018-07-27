@@ -8,6 +8,7 @@ abstract sig PoderLegislativo {
 
 sig SenadoFederal{}
 sig CamaraDosDeputados {}
+sig AssembleiaLegislativa {}
 
 
 
@@ -22,7 +23,7 @@ sig DeputadoFederal extends PoderLegislativo{
 
 sig Governador extends  PoderExecutivo{}
 sig DeputadoEstadual extends PoderLegislativo{
-	integra :  one CamaraDosDeputados 
+	integra :  one AssembleiaLegislativa 
 }
 
 
@@ -30,9 +31,13 @@ sig Prefeito extends  PoderExecutivo{}
 sig Vereador extends PoderLegislativo{}
 
 
+//Fatos
 
-fact UnicoSenado {
+fact EstruturasSingulares {
 	one SenadoFederal
+	one CamaraDosDeputados 
+	one AssembleiaLegislativa
+	one Presidente
 }
 
 
